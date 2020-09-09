@@ -20,7 +20,10 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav
+      id="header"
+      class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"
+    >
       <div class="container">
         <a class="navbar-brand" href="#"
           ><img src="./assets/images/platzi-logo.png" alt="logo empresa"
@@ -40,12 +43,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
+              <a class="nav-link" href="#main"
+                >La Conferencia <span class="sr-only">(current)</span></a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-aiuda" href="#">Cursos</a>
+              <a class="nav-link text-aiuda" href="#speakers">Profesores</a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -84,24 +87,6 @@
         </div>
       </div>
     </nav>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"
-    ></script>
 
     <!--MAIN-->
     <main id="main">
@@ -153,10 +138,15 @@
                     estudiantes de Platzi y a los oradores de primer nivel que
                     tenemos para ti. Te esperamos!
                   </p>
-                  <a href="#" class="btn btn-outline-light"
+                  <a href="#conviertete-en-orador" class="btn btn-outline-light"
                     >Quiero ser orador</a
                   >
-                  <button type="button" class="btn btn-platzi">
+                  <button
+                    type="button"
+                    data-toggle="modal"
+                    data-target="#modalCompra"
+                    class="btn btn-platzi"
+                  >
                     Comprar Tickets
                   </button>
                 </div>
@@ -260,7 +250,7 @@
           <div class="col-12 col-lg-6 pl-0 pr-0">
             <img src="./assets/images/honolulu.jpg" alt="" />
           </div>
-          <div class="col-12 col-lg-6 pt-2 pb-4">
+          <div id="texto-lugar-fecha" class="col-12 col-lg-6 pt-2 pb-4">
             <h2>Honolulu - Octubre 2025</h2>
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -288,8 +278,10 @@
         </div>
         <div class="row">
           <div class="col text-center">
-            Anotate como orador para dar una charla ignite. Cuentanos de que
-            quieres hablar!
+            Anotate como orador para dar una
+            <abbr data-toggle="tooltip" title="Charlas de 5 minutos"
+              >caharla ignite</abbr
+            >. Cuentanos de que quieres hablar!
           </div>
         </div>
         <div class="row">
@@ -362,5 +354,87 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="modalCompra"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Comprar Tickets</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-row">
+                <div class="form-group col">
+                  <div class="input-group mb-3">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"
+                          >@</span
+                        >
+                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Username"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!-- mensaje de alerta -->
+            <div class="alert alert-warning" role="alert">
+              Recibiras un correo de confirmacion si sales sorteado
+            </div>
+            <!-- /mensaje de alerta -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button type="button" class="btn btn-platzi">Comprar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js"></script>
   </body>
 </html>
